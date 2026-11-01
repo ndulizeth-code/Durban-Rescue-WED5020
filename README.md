@@ -55,5 +55,5 @@ How to run:
 Open index.html with Live Server. All JS in JS/script.js
 
 GitHub & Live URL:
-- GitHub: https://github.com/ST10527294/Durban-Rescue-WED5020
-- Live Site: https://durban-rescue-wed5020.netlify.app
+- GitHub: https://github.com/ndulizeth-code/Durban-Rescue-WED5020
+- Live Site: https://effulgent-cucurucho-272180.netlify.app
