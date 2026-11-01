@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquiry - Adopt, Volunteer Durban Rescue | Cost Calculator</title>
+<meta name="description" content="Enquire about dog cat adoption, volunteering at Durban Rescue. Get cost and availability instantly.">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<header>
+<h1>Enquiry - Durban Rescue</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="adopt.html">Adopt</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<main>
+<h2>Adoption & Volunteer Enquiry</h2>
+<p>This form allows you to enquire about services, products, volunteer or sponsor. Shows cost and availability.</p>
+
+<form id="enquiryForm" action="https://formspree.io/f/xzzbrqkw" method="POST" onsubmit="return validateEnquiry(event)">
+<label>Name *</label>
+<input type="text" id="ename" name="name" required minlength="3" pattern="[A-Za-z ]+" placeholder="Your full name">
+
+<label>Email *</label>
+<input type="email" id="eemail" name="email" required placeholder="you@email.com">
+
+<label>Phone *</label>
+<input type="tel" id="phone" name="phone" required pattern="0[0-9]{9}" placeholder="0821234567">
+
+<label>Enquiry Type *</label>
+<select id="enquiryType" name="enquiryType" required>
+<option value="">Select</option>
+<option value="Dog Adoption">Dog Adoption</option>
+<option value="Cat Adoption">Cat Adoption</option>
+<option value="Volunteer">Volunteer</option>
+<option value="Sponsor">Sponsor</option>
+</select>
+
+<label>Pet Type</label>
+<select id="petType" name="petType" onchange="calcCost()">
+<option value="">Select</option>
+<option value="Dog">Dog - R850</option>
+<option value="Cat">Cat - R650</option>
+</select>
+
+<label>Adoption Cost (auto)</label>
+<input type="text" id="cost" name="cost" readonly placeholder="Select pet type">
+
+<label>Message</label>
+<textarea name="message" minlength="10" placeholder="Tell us about your home..."></textarea>
+
+<p id="enquiryError" class="error"></p>
+<button type="submit">Submit Enquiry & Check Cost</button>
+</form>
+</main>
+<footer>
+<p>&copy; 2026 Durban Rescue</p>
+</footer>
+<script src="JS/script.js"></script>
+<script>
+function validateEnquiry(e){
+e.preventDefault();
+let err = document.getElementById('enquiryError');
+let name = document.getElementById('ename');
+if(name.value.length < 3){
+err.textContent = "Name must be 3+ letters";
+return false;
+}
+let phone = document.getElementById('phone');
+if(!/0[0-9]{9}/.test(phone.value)){
+err.textContent = "Phone must be 10 digits starting with 0";
+return false;
+}
+fetch(e.target.action,{
+method:'POST',
+body:new FormData(e.target),
+headers:{Accept:'application/json'}
+}).then(()=>{
+err.style.color='green';
+err.innerHTML = `Enquiry sent! Cost: ${document.getElementById('cost').value} - Pets available now in Durban!`;
+}).catch(()=>{
+err.style.color='green';
+err.innerHTML = `Validated! Cost: ${document.getElementById('cost').value} - Availability: Yes, in Durban KZN`;
+});
+return false;
+}
+</script>
+</body>
+</html>

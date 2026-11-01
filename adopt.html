@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adopt Dogs & Cats Durban | Durban Rescue Pets</title>
+<meta name="description" content="Adopt a dog or cat in Durban. Search and filter pets at Durban Rescue. Dogs R850, Cats R650.">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<header>
+<h1>Adopt Pets Durban</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="adopt.html">Adopt</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<main>
+<h2>Dogs & Cats Available For Adoption in Durban</h2>
+<h3>Search Our Pets - Dynamic Search (2.2)</h3>
+<input type="text" id="search" placeholder="Search dog, cat, Buddy, Luna...">
+
+<div id="pet-container">
+<!-- Pets loaded dynamically via JavaScript -->
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img" alt="Pet enlarged view Durban Rescue">
+</div>
+
+<div id="petModal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<span onclick="closeModal()" style="float:right;cursor:pointer;font-size:24px">&times;</span>
+<div id="modalText"></div>
+</div>
+</div>
+</main>
+<footer>
+<p>&copy; 2026 Durban Rescue | Adopt a rescue pet Durban</p>
+</footer>
+<script src="JS/script.js"></script>
+</body>
+</html>

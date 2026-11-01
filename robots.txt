@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://durban-rescue.netlify.app/sitemap.xml
